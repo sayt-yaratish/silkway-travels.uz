@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Silk Way Travels — silkway-travels.uz</title>
+<meta name="description" content="Silk Way Travels: O‘zbekiston bo‘ylab ichki turizm — tarixiy shaharlar, tog‘ dam olish maskanlari, sanatoriyalar, mehmonxona, transfer va gid xizmati.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✦</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Manrope:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--lapis:#0c3554;--deep:#071f33;--turq:#19a5a0;--gold:#eba73c;--sand:#f7f0e3;--brick:#b4472d;--ink:#14222d;--r:22px}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:Manrope,system-ui,sans-serif;background:var(--sand);color:var(--ink);line-height:1.65;overflow-x:hidden}
+h1,h2,h3{font-family:Fraunces,Georgia,serif;line-height:1.1;font-weight:700}
+a{color:inherit;text-decoration:none}
+section{padding:clamp(70px,10vw,130px) clamp(18px,5vw,64px);position:relative}
+.wrap{width:100%;max-width:1320px;margin:0 auto}
+h2{font-size:clamp(2rem,5vw,3.6rem);margin-bottom:18px;color:var(--lapis)}
+.lead{max-width:62ch;font-size:1.08rem;opacity:.85}
+:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+#pre{position:fixed;inset:0;background:var(--deep);z-index:99;display:grid;place-items:center;transition:opacity .7s .2s,visibility .7s .2s}
+#pre svg{width:90px;animation:spin 2s linear infinite}
+body.ready #pre{opacity:0;visibility:hidden}
+#bar{position:fixed;top:0;left:0;height:4px;width:0;background:linear-gradient(90deg,var(--turq),var(--gold));z-index:60}
+#glow{position:fixed;width:340px;height:340px;border-radius:50%;pointer-events:none;background:radial-gradient(circle,rgba(235,167,60,.22),transparent 65%);transform:translate(-50%,-50%);z-index:1;mix-blend-mode:screen;opacity:0;transition:opacity .4s}
+nav{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;align-items:center;justify-content:space-between;padding:14px max(clamp(16px,4vw,48px),calc((100vw - 1320px)/2));transition:.4s;color:#fff}
+nav.s{background:rgba(7,31,51,.88);backdrop-filter:blur(12px);padding-block:9px}
+.logo{font-family:Fraunces,serif;font-weight:700;font-size:1.3rem;display:flex;gap:9px;align-items:center}
+.logo i{color:var(--gold);font-style:normal;display:inline-block;animation:spin 9s linear infinite}
+.links{display:flex;gap:26px;font-weight:500;font-size:.95rem}
+.links a{position:relative;padding:4px 0}
+.links a:after{content:"";position:absolute;left:0;bottom:0;height:2px;width:0;background:var(--gold);transition:.3s}
+.links a:hover:after{width:100%}
+.lang{display:flex;gap:4px;background:rgba(255,255,255,.12);padding:4px;border-radius:99px}
+.lang button{border:0;background:none;color:#fff;font:700 .78rem Manrope;padding:6px 11px;border-radius:99px;cursor:pointer;transition:.3s}
+.lang button.on{background:var(--gold);color:var(--deep)}
+.burger{display:none;background:none;border:0;width:34px;height:26px;cursor:pointer;position:relative}
+.burger span{position:absolute;left:3px;right:3px;height:2px;background:#fff;transition:.3s}
+.burger span:nth-child(1){top:6px}.burger span:nth-child(2){top:13px}.burger span:nth-child(3){top:20px}
+.burger.x span:nth-child(1){top:13px;transform:rotate(45deg)}.burger.x span:nth-child(2){opacity:0}.burger.x span:nth-child(3){top:13px;transform:rotate(-45deg)}
+.right{display:flex;gap:14px;align-items:center}
+/* hero */
+.hero{min-height:100svh;background:radial-gradient(ellipse at 70% 30%,#115079,var(--lapis) 45%,var(--deep));color:#fff;display:flex;align-items:center;overflow:hidden;padding-top:90px}
+.star{position:absolute;right:-12vmin;top:50%;width:92vmin;max-width:900px;transform:translateY(-50%);opacity:.55;animation:spin 80s linear infinite}
+.star.b{width:62vmin;right:2vmin;opacity:.5;animation-direction:reverse;animation-duration:55s}
+.dot{position:absolute;border-radius:50%;background:var(--gold);opacity:.6;animation:float 7s ease-in-out infinite}
+.hero .wrap{position:relative;z-index:2}
+.hero h1{font-size:clamp(2.4rem,7vw,6.2rem);max-width:16ch}
+.hero h1 .w{display:inline-block;white-space:nowrap}
+.hero h1 .c{display:inline-block;transform:translateY(110%) rotate(8deg);opacity:0;animation:up .9s cubic-bezier(.2,.8,.2,1) forwards}
+.hero p{max-width:50ch;margin:26px 0 36px;font-size:clamp(1rem,2vw,1.2rem);opacity:0;animation:fade 1s 1.4s forwards}
+.btns{display:flex;gap:14px;flex-wrap:wrap;opacity:0;animation:fade 1s 1.7s forwards}
+.btn{display:inline-block;border:0;cursor:pointer;font:700 1rem Manrope;padding:16px 32px;border-radius:99px;background:var(--gold);color:var(--deep);transition:transform .25s,box-shadow .3s;position:relative;overflow:hidden}
+.btn:hover{box-shadow:0 12px 34px rgba(235,167,60,.45)}
+.btn:after{content:"";position:absolute;top:0;left:-70%;width:50%;height:100%;background:rgba(255,255,255,.55);transform:skewX(-25deg);animation:shine 3.5s infinite}
+.btn.o{background:none;color:#fff;border:2px solid rgba(255,255,255,.6)}.btn.o:after{display:none}
+.btn.o:hover{background:#fff;color:var(--deep)}
+.scroll{position:absolute;bottom:100px;left:50%;width:26px;height:44px;border:2px solid rgba(255,255,255,.6);border-radius:14px;z-index:2}
+.scroll:after{content:"";position:absolute;left:50%;top:8px;width:4px;height:8px;margin-left:-2px;border-radius:2px;background:var(--gold);animation:wheel 1.6s infinite}
+.marq{background:var(--gold);color:var(--deep);overflow:hidden;white-space:nowrap;padding:16px 0;font-family:Fraunces,serif;font-size:1.5rem;font-weight:700;transform:rotate(-0.2deg);margin:-14px -10px 0;position:relative;z-index:3}
+.marq div{display:inline-block;animation:mq 28s linear infinite}
+.marq span{margin:0 22px}
+/* about */
+.about .wrap{display:grid;grid-template-columns:1.2fr 1fr;gap:clamp(30px,6vw,80px);align-items:center}
+.stats{display:grid;gap:18px}
+.stat{background:var(--lapis);color:#fff;border-radius:var(--r);padding:26px 30px;display:flex;align-items:baseline;gap:18px;transition:transform .4s}
+.stat:hover{transform:translateX(10px)}
+.stat b{font:700 3.2rem Fraunces,serif;color:var(--gold);min-width:2ch}
+/* cards */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:22px;margin-top:44px;perspective:1000px}
+.card{position:relative;min-height:340px;border-radius:var(--r);overflow:hidden;color:#fff;display:flex;align-items:flex-end;background:var(--bg);background-size:cover;background-position:center;transition:transform .2s,box-shadow .4s;transform-style:preserve-3d;box-shadow:0 10px 30px rgba(7,31,51,.18)}
+.card:hover{box-shadow:0 26px 50px rgba(7,31,51,.35)}
+.card:before{content:"";position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Cpath d='M30 4l7 19 19 7-19 7-7 19-7-19-19-7 19-7z' fill='none' stroke='%23fff' stroke-opacity='.13'/%3E%3C/svg%3E");transition:transform 1.2s}
+.card:hover:before{transform:scale(1.4) rotate(6deg)}
+.card:after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(7,20,32,.9),rgba(7,20,32,.1) 65%)}
+.card .in{position:relative;z-index:2;padding:26px;transform:translateZ(40px)}
+.card h3{font-size:1.7rem;margin-bottom:6px}
+.card p{font-size:.93rem;opacity:.9;max-height:0;overflow:hidden;transition:max-height .5s,opacity .5s;opacity:0}
+.card:hover p,.card:focus-within p{max-height:130px;opacity:.95}
+@media(hover:none){.card p{max-height:none;opacity:.92}}
+.tags{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+.tags span{background:var(--gold);color:var(--deep);padding:3px 12px;border-radius:99px;font-size:.8rem;font-weight:700}
+.dark{background:var(--deep);color:#fff}.dark h2{color:#fff}.dark .lead{opacity:.8}
+.card.wide{grid-column:span 2}
+/* sanatorium */
+.san{background:linear-gradient(135deg,var(--turq),#0d6e75);color:#fff;overflow:hidden}
+.san h2{color:#fff}
+.san ul{list-style:none;margin-top:26px;display:grid;gap:12px}
+.san li{padding:16px 22px 16px 54px;background:rgba(255,255,255,.14);border-radius:16px;position:relative;backdrop-filter:blur(6px);transition:.3s}
+.san li:hover{background:rgba(255,255,255,.26);transform:translateX(8px)}
+.san li:before{content:"✦";position:absolute;left:20px;color:var(--gold);animation:spin 5s linear infinite}
+.san .bg{position:absolute;right:-8%;bottom:-30%;width:620px;opacity:.18;animation:spin 60s linear infinite}
+/* services */
+.srv{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px;margin-top:44px}
+.sv{background:#fff;border-radius:var(--r);padding:38px 30px;border-bottom:5px solid var(--gold);box-shadow:0 12px 34px rgba(12,53,84,.1);transition:.4s;position:relative;overflow:hidden}
+.sv:hover{transform:translateY(-12px);border-color:var(--turq)}
+.sv .ic{font-size:2.6rem;display:inline-block;transition:transform .5s}
+.sv:hover .ic{transform:scale(1.3) rotate(-10deg)}
+.sv h3{margin:14px 0 8px;color:var(--lapis);font-size:1.5rem}
+/* form */
+.contact{background:var(--lapis);color:#fff;overflow:hidden}
+.contact .wrap{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,6vw,70px);align-items:center}
+.contact h2{color:#fff}
+form{background:var(--sand);color:var(--ink);padding:clamp(24px,4vw,44px);border-radius:28px;display:grid;gap:18px;box-shadow:0 30px 70px rgba(0,0,0,.35)}
+.f{position:relative}
+.f input,.f select{width:100%;padding:22px 16px 8px;border:2px solid #d9cdb6;border-radius:14px;background:#fff;font:500 1rem Manrope;color:var(--ink);transition:.3s;appearance:none}
+.f select{background:#fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='9'%3E%3Cpath d='M1 1l6 6 6-6' stroke='%230c3554' stroke-width='2' fill='none'/%3E%3C/svg%3E") no-repeat right 16px center}
+.f label{position:absolute;left:18px;top:16px;font-size:1rem;color:#7b6f5b;pointer-events:none;transition:.25s;transform-origin:left}
+.f input:focus,.f select:focus{border-color:var(--turq);box-shadow:0 0 0 4px rgba(25,165,160,.18);outline:0}
+.f input:focus+label,.f input:not(:placeholder-shown)+label,.f select+label{transform:translateY(-10px) scale(.74)}
+.hp{position:absolute;left:-9999px}
+#msg{min-height:1.4em;font-weight:700;text-align:center}
+#msg.ok{color:#0d7a4a}#msg.er{color:var(--brick)}
+form .btn{width:100%;background:var(--lapis);color:#fff}
+form .btn[disabled]{opacity:.6;cursor:wait}
+footer{background:var(--deep);color:#fff;text-align:center;padding:36px 18px;font-size:.92rem;opacity:.95}
+footer b{color:var(--gold)}
+.rv{opacity:0;transform:translateY(46px) scale(.97);transition:opacity .9s,transform .9s cubic-bezier(.2,.8,.2,1)}
+.rv.in{opacity:1;transform:none}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes up{to{transform:none;opacity:1}}
+@keyframes fade{to{opacity:1}}
+@keyframes float{50%{transform:translateY(-34px) translateX(14px)}}
+@keyframes shine{0%,60%{left:-70%}100%{left:130%}}
+@keyframes wheel{to{transform:translateY(14px);opacity:0}}
+@keyframes mq{to{transform:translateX(-50%)}}
+@media(max-width:960px){
+.links{position:fixed;inset:0 0 0 auto;width:min(80vw,320px);background:var(--deep);flex-direction:column;justify-content:center;padding:40px;gap:28px;font-size:1.2rem;transform:translateX(100%);transition:transform .5s cubic-bezier(.2,.8,.2,1)}
+.links.open{transform:none}
+.burger{display:block;z-index:3}
+.about .wrap,.contact .wrap{grid-template-columns:1fr}
+.star{opacity:.3}
+}
+@media(max-width:600px){.card.wide{grid-column:auto}.card{min-height:290px}.grid{grid-template-columns:1fr}.logo span{display:none}.btn{width:100%;text-align:center}}
+@media(min-width:601px) and (max-width:1000px){.card.wide{grid-column:span 2}}
+@media(prefers-reduced-motion:reduce){*{animation-duration:.01s!important;animation-iteration-count:1!important;transition-duration:.01s!important}.rv{opacity:1;transform:none}.hero h1 .c,.hero p,.btns{opacity:1;transform:none}}
+
+.f input,.f select{width:100%;height:64px;padding:28px 44px 8px 18px;line-height:1.3;}
+.f label{position:absolute;left:18px;top:20px;}
+.f input:focus+label,.f input:not(:placeholder-shown)+label,.f select+label{transform:translateY(-8px) scale(.74)}
+</style>
+</head>
+<body>
+<div id="pre"><svg viewBox="0 0 100 100"><g fill="none" stroke="#eba73c" stroke-width="3"><rect x="22" y="22" width="56" height="56"/><rect x="22" y="22" width="56" height="56" transform="rotate(45 50 50)"/></g></svg></div>
+<div id="bar"></div><div id="glow"></div>
+
+<nav id="nav">
+  <a href="#top" class="logo"><i>✦</i><span>Silk Way Travels</span></a>
+  <div class="links" id="links">
+    <a href="#about" data-t="n1"></a><a href="#cities" data-t="n2"></a><a href="#resorts" data-t="n3"></a><a href="#san" data-t="n4"></a><a href="#services" data-t="n5"></a><a href="#contact" data-t="n6"></a>
+  </div>
+  <div class="right">
+    <div class="lang" role="group" aria-label="Language"><button data-l="uz" class="on">UZ</button><button data-l="en">EN</button><button data-l="ru">RU</button></div>
+    <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <svg class="star" viewBox="0 0 200 200" fill="none" stroke="#eba73c" stroke-opacity=".5"><g id="st"><rect x="40" y="40" width="120" height="120"/><rect x="40" y="40" width="120" height="120" transform="rotate(45 100 100)"/><circle cx="100" cy="100" r="62"/><circle cx="100" cy="100" r="38"/><rect x="62" y="62" width="76" height="76" transform="rotate(22.5 100 100)"/></g></svg>
+  <svg class="star b" viewBox="0 0 200 200" fill="none" stroke="#19a5a0" stroke-width="1.2"><use href="#st"/></svg>
+  <i class="dot" style="left:8%;top:22%;width:10px;height:10px;animation-delay:-0s"></i>
+<i class="dot" style="left:25%;top:12%;width:8px;height:8px;animation-delay:-3s"></i>
+<i class="dot" style="left:42%;top:72%;width:16px;height:16px;animation-delay:-2s"></i>
+<i class="dot" style="left:60%;top:48%;width:12px;height:12px;animation-delay:-5s"></i>
+<i class="dot" style="left:72%;top:16%;width:8px;height:8px;animation-delay:-4s"></i>
+<i class="dot" style="left:80%;top:60%;width:10px;height:10px;animation-delay:-6s"></i>
+<i class="dot" style="left:90%;top:78%;width:12px;height:12px;animation-delay:-1s"></i>
+<i class="dot" style="left:15%;top:60%;width:10px;height:10px;animation-delay:-7s"></i>
+<i class="dot" style="left:33%;top:35%;width:8px;height:8px;animation-delay:-2s"></i>
+<i class="dot" style="left:52%;top:18%;width:10px;height:10px;animation-delay:-6s"></i>
+<i class="dot" style="left:66%;top:82%;width:14px;height:14px;animation-delay:-3s"></i>
+<i class="dot" style="left:88%;top:30%;width:8px;height:8px;animation-delay:-5s"></i>
+<i class="dot" style="left:5%;top:80%;width:12px;height:12px;animation-delay:-4s"></i>
+<i class="dot" style="left:48%;top:90%;width:8px;height:8px;animation-delay:-1s"></i>
+<i class="dot" style="left:95%;top:50%;width:10px;height:10px;animation-delay:-7s"></i>
+  <div class="wrap">
+    <h1 id="h1" data-t="h1"></h1>
+    <p data-t="hp"></p>
+    <div class="btns"><a href="#contact" class="btn mag" data-t="c1"></a><a href="#cities" class="btn o mag" data-t="c2"></a></div>
+  </div>
+  <div class="scroll"></div>
+</header>
+<div class="marq"><div id="mq"></div></div>
+
+<section class="about" id="about">
+  <div class="wrap">
+    <div class="rv"><h2 data-t="a1"></h2><p class="lead" data-t="a2"></p><p class="lead" style="margin-top:14px" data-t="a3"></p></div>
+    <div class="stats rv">
+      <div class="stat"><b data-n="5">0</b><span data-t="s1"></span></div>
+      <div class="stat"><b data-n="7">0</b><span data-t="s2"></span></div>
+      <div class="stat"><b data-n="3">0</b><span data-t="s3"></span></div>
+    </div>
+  </div>
+</section>
+
+<section id="cities" style="padding-top:20px">
+  <div class="wrap"><h2 class="rv" data-t="ct"></h2><p class="lead rv" data-t="cp"></p><div class="grid" id="g1"></div></div>
+</section>
+
+<section class="dark" id="resorts">
+  <div class="wrap"><h2 class="rv" data-t="rt"></h2><p class="lead rv" data-t="rp"></p><div class="grid" id="g2"></div></div>
+</section>
+
+<section class="san" id="san">
+  <svg class="bg" viewBox="0 0 200 200" fill="none" stroke="#fff"><use href="#st"/></svg>
+  <div class="wrap" style="position:relative;max-width:900px;margin-left:auto;margin-right:auto">
+    <h2 class="rv" data-t="zt"></h2><p class="lead rv" data-t="zp"></p>
+    <ul class="rv"><li data-t="z1"></li><li data-t="z2"></li><li data-t="z3"></li></ul>
+  </div>
+</section>
+
+<section id="services">
+  <div class="wrap"><h2 class="rv" data-t="vt"></h2>
+    <div class="srv">
+      <div class="sv rv"><span class="ic"></span><img style="width: 100px;" src="images/free-icon-hotel-4318502.png" alt=""><h3 data-t="v1"></h3><p data-t="v1d"></p></div>
+      <div class="sv rv"><span class="ic"></span><img style="width: 100px;" src="images/free-icon-shuttle-service-18318208.png" alt=""><h3 data-t="v2"></h3><p data-t="v2d"></p></div>
+      <div class="sv rv"><span class="ic"></span><img style="width: 100px;" src="images/free-icon-tour-guide-6198083.png" alt=""><h3 data-t="v3"></h3><p data-t="v3d"></p></div>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="wrap">
+    <div class="rv"><h2 data-t="ft"></h2><p class="lead" data-t="fp"></p></div>
+    <form id="form" class="rv" novalidate>
+      <div class="f"><input name="name" id="nm" placeholder=" " required maxlength="60" autocomplete="name"><label for="nm" data-t="fn"></label></div>
+      <div class="f"><input name="phone" id="ph" type="tel" placeholder=" " required maxlength="20" autocomplete="tel" inputmode="tel"><label for="ph" data-t="fph"></label></div>
+      <div class="f"><select name="service" id="sv" required></select><label for="sv" data-t="fs"></label></div>
+      <input class="hp" name="website" tabindex="-1" autocomplete="off">
+      <button class="btn mag" type="submit" id="sb" data-t="fb"></button>
+      <div id="msg" role="status"></div>
+    </form>
+  </div>
+</section>
+<footer>© <span id="yr"></span> <b>Silk Way Travels</b> · silkway-travels.uz</footer>
+
+<script>
+const T={
+uz:{n1:"Biz haqimizda",n2:"Shaharlar",n3:"Dam olish",n4:"Sanatoriyalar",n5:"Xizmatlar",n6:"Ariza",
+h1:"Buyuk Ipak yo‘li bo‘ylab sayohat",hp:"O‘zbekiston bo‘ylab ishonchli va qulay sayohatlar: tarixiy shaharlar, tog‘ dam olish maskanlari va sanatoriyalar.",c1:"Ariza qoldirish",c2:"Yo‘nalishlarni ko‘rish",
+a1:"O‘z yurtingizni kashf eting",a2:"Silk Way Travels — ichki turizmga ixtisoslashgan sayohat kompaniyasi. Biz sizni Samarqand gumbazlaridan Xiva devorlarigacha, Chimyon tog‘laridan sanatoriyalargacha olib boramiz.",a3:"Yo‘nalish tanlash, mehmonxona, transfer va gid — barchasini bir joyda tashkil qilamiz. Siz faqat dam olishga tayyorlaning.",
+s1:"tarixiy shahar",s2:"dam olish yo‘nalishi",s3:"asosiy xizmat",
+ct:"Tarixiy shaharlar",cp:"O‘zbekistonning tarixiy yodgorliklari joylashgan shaharlar — Buyuk Ipak yo‘lining jonli sahifalari.",
+rt:"Tog‘ va dam olish maskanlari",rp:"Toza havo, tog‘ manzaralari va ko‘l bo‘yida orom — butun oila uchun.",
+zt:"Sanatoriyalar",zp:"Sog‘lig‘ingizni tiklash va to‘liq dam olish uchun eng yaxshi sanatoriyalarni tanlashda yordam beramiz.",z1:"Sizning ehtiyojingizga mos sanatoriya tanlash",z2:"Oila, juftlik va keksalar uchun qulay dasturlar",z3:"Davolanish, parhez va dam olish bir paketda",
+vt:"Xizmatlarimiz",v1:"Mehmonxona",v1d:"Har bir byudjetga mos mehmonxona va mehmon uylarini band qilamiz.",v2:"Transfer",v2d:"Aeroport, vokzal va shaharlar o‘rtasida qulay va xavfsiz transport.",v3:"Gid xizmati",v3d:"Tajribali gidlar o‘zbek, ingliz va rus tillarida sayohatingizni qiziqarli qiladi.",
+ft:"Ariza qoldiring",fp:"Ismingiz va telefon raqamingizni qoldiring — menejerimiz tez orada siz bilan bog‘lanadi.",fn:"Ismingiz",fph:"Telefon raqamingiz",fs:"Qaysi xizmat qiziqtiradi?",fb:"Yuborish",
+ok:"Rahmat! Arizangiz qabul qilindi.",er:"Yuborib bo‘lmadi. Qayta urinib ko‘ring.",inv:"Ism va telefon raqamini to‘g‘ri kiriting.",
+o:["Mehmonxona","Transfer","Gid xizmati","Tarixiy shaharlar sayohati","Tog‘ dam olish maskanlari","Sanatoriya","Boshqa"]},
+en:{n1:"About",n2:"Cities",n3:"Resorts",n4:"Sanatoriums",n5:"Services",n6:"Request",
+h1:"Travel along the Great Silk Road",hp:"Reliable and comfortable trips across Uzbekistan: historic cities, mountain resorts and sanatoriums.",c1:"Send a request",c2:"View destinations",
+a1:"Discover your own country",a2:"Silk Way Travels is a travel company focused on domestic tourism. We take you from the domes of Samarkand to the walls of Khiva, from the Chimgan mountains to sanatoriums.",a3:"Route planning, hotels, transfers and guides — we arrange everything in one place. You just get ready to relax.",
+s1:"historic cities",s2:"resort destinations",s3:"core services",
+ct:"Historic cities",cp:"Cities with Uzbekistan’s historical monuments — living pages of the Great Silk Road.",
+rt:"Mountains & resorts",rp:"Fresh air, mountain views and lakeside calm — for the whole family.",
+zt:"Sanatoriums",zp:"We help you choose the best sanatorium for full recovery and rest.",z1:"A sanatorium matched to your needs",z2:"Comfortable programs for families, couples and seniors",z3:"Treatment, diet and leisure in one package",
+vt:"Our services",v1:"Hotels",v1d:"We book hotels and guest houses for every budget.",v2:"Transfer",v2d:"Comfortable and safe transport between airports, stations and cities.",v3:"Guide service",v3d:"Experienced guides make your trip engaging in Uzbek, English and Russian.",
+ft:"Send a request",fp:"Leave your name and phone number — our manager will contact you shortly.",fn:"Your name",fph:"Your phone number",fs:"Which service are you interested in?",fb:"Send",
+ok:"Thank you! Your request has been received.",er:"Could not send. Please try again.",inv:"Please enter a valid name and phone number.",
+o:["Hotel","Transfer","Guide service","Historic cities tour","Mountain resorts","Sanatorium","Other"]},
+ru:{n1:"О нас",n2:"Города",n3:"Отдых",n4:"Санатории",n5:"Услуги",n6:"Заявка",
+h1:"Путешествие по Великому Шелковому пути",hp:"Надёжные и комфортные поездки по Узбекистану: исторические города, горные курорты и санатории.",c1:"Оставить заявку",c2:"Смотреть направления",
+a1:"Откройте свою страну",a2:"Silk Way Travels — туристическая компания, специализирующаяся на внутреннем туризме. Мы проведём вас от куполов Самарканда до стен Хивы, от гор Чимгана до санаториев.",a3:"Выбор маршрута, отель, трансфер и гид — организуем всё в одном месте. Вам остаётся только отдыхать.",
+s1:"исторических городов",s2:"направлений для отдыха",s3:"основные услуги",
+ct:"Исторические города",cp:"Города, где расположены исторические памятники Узбекистана — живые страницы Великого Шелкового пути.",
+rt:"Горы и места отдыха",rp:"Чистый воздух, горные виды и покой у озера — для всей семьи.",
+zt:"Санатории",zp:"Поможем выбрать лучший санаторий для восстановления здоровья и полноценного отдыха.",z1:"Санаторий, подобранный под ваши потребности",z2:"Удобные программы для семей, пар и пожилых",z3:"Лечение, диета и отдых в одном пакете",
+vt:"Наши услуги",v1:"Гостиницы",v1d:"Бронируем отели и гостевые дома под любой бюджет.",v2:"Трансфер",v2d:"Комфортный и безопасный транспорт между аэропортами, вокзалами и городами.",v3:"Услуги гида",v3d:"Опытные гиды сделают поездку интересной на узбекском, английском и русском.",
+ft:"Оставьте заявку",fp:"Оставьте имя и номер телефона — наш менеджер скоро свяжется с вами.",fn:"Ваше имя",fph:"Ваш номер телефона",fs:"Какая услуга интересует?",fb:"Отправить",
+ok:"Спасибо! Ваша заявка принята.",er:"Не удалось отправить. Попробуйте ещё раз.",inv:"Введите корректное имя и номер телефона.",
+o:["Гостиница","Трансфер","Услуги гида","Тур по историческим городам","Горные курорты","Санаторий","Другое"]}};
+
+/* [id, name per lang, gradient, desc uz/en/ru, tags] — put photos in /images/<id>.jpg (optional) */
+const C=[
+["toshkent",["Toshkent","Tashkent","Ташкент"],"#0e5a7a,#19a5a0",["Poytaxt: Xast-Imom, Chorsu bozori, metro bekatlari va zamonaviy shahar hayoti.","The capital: Hazrati Imam, Chorsu bazaar, metro stations and modern city life.","Столица: Хаст-Имам, базар Чорсу, станции метро и современная городская жизнь."]],
+["samarqand",["Samarqand","Samarkand","Самарканд"],"#0c3554,#2a7fb5",["Registon, Go‘ri Amir va Shohizinda — Sharqning gavhari.","Registan, Gur-e-Amir and Shah-i-Zinda — the jewel of the East.","Регистан, Гур-Эмир и Шахи-Зинда — жемчужина Востока."]],
+["buxoro",["Buxoro","Bukhara","Бухара"],"#7a3b1d,#eba73c",["Ark qal’asi, Poyi Kalon va savdo gumbazlari bilan jonli muzey-shahar.","A living museum city with the Ark fortress, Po-i-Kalyan and trading domes.","Город-музей: крепость Арк, Пои-Калон и торговые купола."]],
+["xorazm",["Xorazm","Khorezm","Хорезм"],"#9a4a2a,#e0863a",["Xiva — Ichan-Qal’a ochiq osmon ostidagi muzey. Urganch — Xorazm eshigi.","Khiva’s Itchan Kala is an open-air museum. Urgench is the gateway to Khorezm.","Хива — музей под открытым небом Ичан-Кала. Ургенч — ворота Хорезма."],["Xiva","Urganch"]],
+["shahrisabz",["Shahrisabz","Shahrisabz","Шахрисабз"],"#1f6f5c,#7fbf7a",["Amir Temur tug‘ilgan shahar, Oqsaroy qoldiqlari va qadimiy maqbaralar.","Birthplace of Amir Timur with the Ak-Saray ruins and ancient mausoleums.","Родина Амира Темура: руины Ак-Сарая и древние мавзолеи."]]];
+const R=[
+["amirsoy",["Amirsoy","Amirsoy","Амирсой"],"#2b5d8a,#9ec9e8",["Zamonaviy tog‘ kurorti: qishda chang‘i, yozda arqon yo‘l va sayrlar.","A modern mountain resort: skiing in winter, cable car and hiking in summer.","Современный горный курорт: зимой лыжи, летом канатная дорога и прогулки."]],
+["zomin",["Zomin","Zomin","Зомин"],"#1f6f4a,#8fcf8a",["Qarag‘ayzorlar, sharsharalar va toza havo — milliy bog‘ qo‘ynida.","Pine forests, waterfalls and fresh air inside the national park.","Сосновые леса, водопады и чистый воздух национального парка."]],
+["chimyon",["Chimyon","Chimgan","Чимган"],"#3b5f94,#c3d8f0",["Toshkentdan yaqin tog‘ maskani: sayrlar, kreslo yo‘li va go‘zal manzaralar.","A mountain getaway near Tashkent: hikes, chairlift and scenic views.","Горный курорт рядом с Ташкентом: походы, кресельный подъёмник и виды."]],
+["turon",["Turon","Turon","Турон"],"#0e5a5e,#5fc4b0",["Tabiat qo‘ynida sokin dam olish va oilaviy sayohatlar uchun maskan.","A quiet place for relaxing in nature and family trips.","Тихое место для отдыха на природе и семейных поездок."]],
+["xumson",["Xumson","Khumsan","Хумсан"],"#4a6a2a,#c8d96a",["Tog‘ daryosi bo‘yidagi go‘zal qishloq: sayr, piknik va sokinlik.","A beautiful mountain village by the river: walks, picnics and calm.","Красивое горное село у реки: прогулки, пикники и покой."]],
+["dushanbe",["Dushanbe","Dushanbe","Душанбе"],"#7a2f4a,#e08a8a",["Tojikiston poytaxti: bog‘lar, muzeylar va bozorlar bilan tanishuv sayohati.","The capital of Tajikistan: parks, museums and bazaars.","Столица Таджикистана: парки, музеи и базары."]],
+["issiqkol",["Issiq ko‘l","Issyk-Kul","Иссык-Куль"],"#0b4f8a,#4fc3e8",["Qirg‘iziston tog‘lari orasidagi iliq ko‘l: plyajlar va tiklovchi dam olish.","A warm lake in the Kyrgyz mountains: beaches and restorative rest.","Тёплое озеро среди гор Киргизии: пляжи и оздоровительный отдых."]]];
+
+let L=localStorage.getItem('sw')||'uz',$=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+if(!T[L])L='uz';
+function cards(a,el){el.innerHTML=a.map((x,i)=>{const li=['uz','en','ru'].indexOf(L);const t=(x[4]||[]).map(s=>`<span>${s}</span>`).join('');
+return `<article class="card rv tilt${x[4]?' wide':''}" tabindex="0" style="--bg:url(images/${x[0]}images/free-icon-hotel-4318502.png) center/cover,linear-gradient(145deg,${x[2]});transition-delay:${i*70}ms"><div class="in"><h3>${x[1][li]}</h3>${t?`<div class="tags">${t}</div>`:''}<p>${x[3][li]}</p></div></article>`}).join('');
+ el.querySelectorAll('.card').forEach(c=>{c.style.background=c.style.getPropertyValue('--bg');io.observe(c);tilt(c)})}
+function lang(l){L=l;localStorage.setItem('sw',l);document.documentElement.lang=l;const d=T[l];
+ $$('[data-t]').forEach(e=>{if(e.id==='h1')return;e.textContent=d[e.dataset.t]});
+ hero(d.h1);$$('.lang button').forEach(b=>b.classList.toggle('on',b.dataset.l===l));
+ $('#sv').innerHTML=d.o.map((o,i)=>`<option value="${o}" ${i?'':'selected'}>${o}</option>`).join('');
+ cards(C,$('#g1'));cards(R,$('#g2'));
+ const li=['uz','en','ru'].indexOf(l),m=[...C,...R].map(x=>`<span>${x[1][li]} ✦</span>`).join('');$('#mq').innerHTML=m+m;
+ document.title='Silk Way Travels — '+d.h1}
+function hero(t){const h=$('#h1');h.innerHTML=t.split(' ').map((w,wi)=>`<span class="w">${[...w].map((c,i)=>`<span class="c" style="animation-delay:${.25+(wi*6+i)*.035}s">${c}</span>`).join('')}</span>`).join(' ')}
+const io=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target)}}),{threshold:.12});
+function tilt(c){if(matchMedia('(hover:none)').matches)return;
+ c.addEventListener('mousemove',e=>{const r=c.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;c.style.transform=`rotateY(${x*12}deg) rotateX(${-y*12}deg) translateY(-6px)`});
+ c.addEventListener('mouseleave',()=>c.style.transform='')}
+$$('.lang button').forEach(b=>b.onclick=()=>lang(b.dataset.l));
+lang(L);$$('.rv').forEach(e=>io.observe(e));$('#yr').textContent=new Date().getFullYear();
+/* counters */
+const co=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting){const el=x.target,n=+el.dataset.n;let i=0;const t=setInterval(()=>{el.textContent=++i;if(i>=n)clearInterval(t)},180);co.unobserve(el)}}));$$('[data-n]').forEach(e=>co.observe(e));
+/* nav, progress, parallax */
+const nav=$('#nav'),bar=$('#bar'),st=$$('.star');
+addEventListener('scroll',()=>{const y=scrollY,h=document.body.scrollHeight-innerHeight;nav.classList.toggle('s',y>40);bar.style.width=y/h*100+'%';st.forEach((s,i)=>s.style.marginTop=(y*(i?-.1:.12))+'px')},{passive:true});
+$('#burger').onclick=()=>{$('#burger').classList.toggle('x');$('#links').classList.toggle('open')};
+$$('#links a').forEach(a=>a.onclick=()=>{$('#burger').classList.remove('x');$('#links').classList.remove('open')});
+/* cursor glow + magnetic buttons */
+if(!matchMedia('(hover:none)').matches){const g=$('#glow');addEventListener('mousemove',e=>{g.style.opacity=1;g.style.left=e.clientX+'px';g.style.top=e.clientY+'px'});
+$$('.mag').forEach(b=>{b.addEventListener('mousemove',e=>{const r=b.getBoundingClientRect();b.style.transform=`translate(${(e.clientX-r.left-r.width/2)*.2}px,${(e.clientY-r.top-r.height/2)*.3}px)`});b.addEventListener('mouseleave',()=>b.style.transform='')})}
+addEventListener('load',()=>setTimeout(()=>document.body.classList.add('ready'),500));
+/* form */
+$('#form').addEventListener('submit',async e=>{e.preventDefault();const f=e.target,m=$('#msg'),b=$('#sb'),d=T[L];
+ const name=f.name.value.trim(),phone=f.phone.value.trim();
+ if(name.length<2||phone.replace(/\D/g,'').length<7){m.className='er';m.textContent=d.inv;return}
+ b.disabled=true;m.className='';m.textContent='…';
+ try{const r=await fetch('send.php',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({name,phone,service:f.service.value,website:f.website.value})});
+  const j=await r.json();if(!j.ok)throw 0;m.className='ok';m.textContent=d.ok;f.reset();$('#sv').selectedIndex=0}
+ catch(_){m.className='er';m.textContent=d.er}b.disabled=false});
+</script>
+</body>
+</html>
