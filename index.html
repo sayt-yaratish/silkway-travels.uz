@@ -158,6 +158,16 @@ footer b{color:var(--gold)}
   .stat{padding:20px 22px}
   .stat b{font-size:2.6rem}
 }
+  /* ===== Убираем горизонтальный скролл ===== */
+html,body{overflow-x:hidden;max-width:100%}
+body{overflow-x:clip}
+
+.marq{margin:-14px 0 0;width:100%}
+
+@media(max-width:960px){
+  .links{visibility:hidden;transition:transform .5s cubic-bezier(.2,.8,.2,1),visibility 0s .5s}
+  .links.open{visibility:visible;transition:transform .5s cubic-bezier(.2,.8,.2,1)}
+}
 </style>
 </head>
 <body>
