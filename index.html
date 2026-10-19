@@ -168,6 +168,32 @@ body{overflow-x:clip}
   .links{visibility:hidden;transition:transform .5s cubic-bezier(.2,.8,.2,1),visibility 0s .5s}
   .links.open{visibility:visible;transition:transform .5s cubic-bezier(.2,.8,.2,1)}
 }
+  /* ===== Исправление горизонтального скролла ===== */
+html{overflow-x:hidden}
+body{position:relative;overflow-x:hidden;width:100%}
+section,footer{overflow-x:clip}
+
+/* бегущая строка ровно по ширине экрана */
+.marq{margin:-14px 0 0;width:100%;transform:none}
+
+/* размытие шапки через псевдоэлемент, чтобы меню не ломалось */
+nav.s{background:none;backdrop-filter:none}
+nav:before{content:"";position:absolute;inset:0;background:rgba(7,31,51,.88);backdrop-filter:blur(12px);opacity:0;transition:opacity .4s;z-index:-1}
+nav.s:before{opacity:1}
+
+/* элементы сетки не должны раздувать страницу */
+.wrap>*,.grid>*,.srv>*,form>*{min-width:0}
+
+@media(max-width:960px){
+  /* меню полностью убрано, пока закрыто */
+  .links{display:none}
+  .links.open{display:flex;animation:slideIn .45s cubic-bezier(.2,.8,.2,1)}
+  @keyframes slideIn{from{transform:translateX(100%)}to{transform:none}}
+}
+
+@media(max-width:600px){
+  .card .in{transform:none}
+}
 </style>
 </head>
 <body>
